@@ -17,7 +17,8 @@ exports.listBuilder = async (ftpclient, options) => {
             });
             const filteredSubDirList = subdirfiles.filter((item) => item !== null);
             for (const fileAttribute of filteredSubDirList) {
-                const filePath = `ftp://${options.host}${options.baseDir}${currPath}/${fileAttribute.name}`;
+                const filePath = `ftp://${options.host}${currPath}/${fileAttribute.name}`;
+                // console.log(currPath);
                 urlList.push({ filePath, date: fileAttribute.date });
             }
         }
